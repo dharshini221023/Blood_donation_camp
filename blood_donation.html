@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tamil Nadu Blood Donation Camp</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+  :root{
+    --crimson: #B3122E;
+    --crimson-deep: #7C0A1E;
+    --crimson-bright: #E11D3D;
+    --ivory: #FBF6F1;
+    --bone: #F0E6DC;
+    --ink: #20120F;
+    --ink-soft: #54403B;
+    --pulse-red: #FF3355;
+    --bs-primary: var(--crimson-bright);
+  }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', sans-serif;
+    color:var(--ink);
+    background:var(--ivory);
+  }
+
+  h1,h2,h3,h4{ font-family:'Fraunces', serif; font-weight:600; letter-spacing:-0.01em; }
+
+  ::selection{ background:var(--crimson-bright); color:#fff; }
+
+  .eyebrow{
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--crimson-bright);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:7px; height:7px;
+    border-radius:50%;
+    background:var(--pulse-red);
+    box-shadow:0 0 0 0 rgba(255,51,85,.6);
+    animation: pulseDot 1.8s infinite;
+  }
+  @keyframes pulseDot{
+    0%{ box-shadow:0 0 0 0 rgba(255,51,85,.55); }
+    70%{ box-shadow:0 0 0 9px rgba(255,51,85,0); }
+    100%{ box-shadow:0 0 0 0 rgba(255,51,85,0); }
+  }
+
+  /* ===== NAVBAR ===== */
+  .navbar-custom{
+    transition:all .35s ease;
+    padding-top:18px;
+    padding-bottom:18px;
+  }
+  .navbar-custom.scrolled{
+    background:rgba(251,246,241,.92) !important;
+    backdrop-filter:blur(14px);
+    box-shadow:0 4px 24px rgba(32,18,15,.08);
+    padding-top:10px;
+    padding-bottom:10px;
+  }
+  .navbar-custom .navbar-brand{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:color .35s ease;
+  }
+  .navbar-custom.scrolled .navbar-brand{ color:var(--ink); }
+  .drop{
+    width:18px; height:22px;
+    background:var(--crimson-bright);
+    border-radius:50% 50% 50% 0;
+    transform:rotate(45deg);
+    box-shadow:0 0 0 3px rgba(255,51,85,.18);
+    display:inline-block;
+  }
+  .navbar-custom .nav-link{
+    color:#fff !important;
+    font-weight:600;
+    border-radius:50px;
+    padding:.55rem 1.1rem !important;
+    transition:all .25s ease;
+  }
+  .navbar-custom.scrolled .nav-link{ color:var(--ink-soft) !important; }
+  .navbar-custom .nav-link:hover,
+  .navbar-custom .nav-link.active{
+    background:var(--crimson-bright);
+    color:#fff !important;
+  }
+  .navbar-custom .navbar-toggler{
+    border:1px solid rgba(255,255,255,.4);
+  }
+  .navbar-custom .navbar-toggler-icon{
+    filter: invert(1) brightness(2);
+  }
+  .navbar-custom.scrolled .navbar-toggler-icon{ filter:none; }
+  @media (max-width:991.98px){
+    .navbar-custom .navbar-collapse{
+      background:var(--crimson-deep);
+      margin-top:14px;
+      border-radius:18px;
+      padding:14px;
+    }
+    .navbar-custom .nav-link{ color:#fff !important; }
+  }
+
+  /* ===== HERO ===== */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero .carousel,
+  .hero .carousel-inner,
+  .hero .carousel-item{
+    position:absolute; inset:0; height:100%;
+  }
+  .hero .carousel-item{
+    background-size:cover;
+    background-position:center;
+  }
+  .hero-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(40,8,14,.78) 0%, rgba(60,8,16,.55) 45%, rgba(20,5,9,.88) 100%);
+    z-index:1;
+  }
+  .hero .carousel-indicators [data-bs-target]{
+    background-color:rgba(255,255,255,.7);
+    width:9px; height:9px;
+    border-radius:50%;
+  }
+  .hero .carousel-indicators .active{
+    background-color:var(--pulse-red);
+    width:26px;
+    border-radius:6px;
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    max-width:900px;
+    margin:0 auto;
+    text-align:center;
+    padding:0 20px;
+  }
+  .hero-content h1{
+    font-size:clamp(2.4rem, 6.4vw, 5rem);
+    line-height:1.04;
+    margin-bottom:22px;
+    text-shadow:0 8px 40px rgba(0,0,0,.35);
+  }
+  .hero-content h1 em{ font-style:normal; color:var(--pulse-red); }
+  .hero-sub{
+    font-size:clamp(1.05rem, 2vw, 1.4rem);
+    font-weight:500;
+    color:#F4E4E2;
+    margin-bottom:36px;
+  }
+  .btn-crimson{
+    background:var(--crimson-bright);
+    border:none;
+    color:#fff;
+    border-radius:50px;
+    padding:.85rem 2rem;
+    font-weight:700;
+    box-shadow:0 14px 34px rgba(225,29,61,.45);
+    transition:all .3s ease;
+  }
+  .btn-crimson:hover{
+    background:#ff2f50;
+    color:#fff;
+    transform:translateY(-3px);
+    box-shadow:0 18px 40px rgba(225,29,61,.55);
+  }
+  .btn-outline-light-glass{
+    background:rgba(255,255,255,.1);
+    border:1.5px solid rgba(255,255,255,.55);
+    color:#fff;
+    border-radius:50px;
+    padding:.85rem 2rem;
+    font-weight:700;
+    backdrop-filter:blur(6px);
+    transition:all .3s ease;
+  }
+  .btn-outline-light-glass:hover{
+    background:rgba(255,255,255,.22);
+    color:#fff;
+    transform:translateY(-3px);
+  }
+  .hero-gallery-img{
+    height:140px;
+    width:100%;
+    object-fit:cover;
+    border:2px solid rgba(255,255,255,.4);
+    box-shadow:0 14px 34px rgba(0,0,0,.35);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .hero-gallery-img:hover{
+    transform:translateY(-6px) scale(1.03);
+    box-shadow:0 20px 44px rgba(0,0,0,.45);
+  }
+  @media (max-width:576px){
+    .hero-gallery-img{ height:90px; }
+  }
+
+  /* ===== SECTIONS ===== */
+  .section-pad{ padding:110px 0; }
+  .section-head{ max-width:680px; margin:0 auto 60px; text-align:center; }
+  .section-head h2{ font-size:clamp(2rem,4vw,2.9rem); margin:14px 0; }
+  .section-head p{ color:var(--ink-soft); font-size:1.05rem; }
+
+  .stat-num{
+    font-family:'Fraunces', serif;
+    font-size:2.6rem;
+    font-weight:700;
+    color:var(--crimson);
+    line-height:1;
+  }
+  .stat-lbl{
+    font-size:.78rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:600;
+    margin-top:6px;
+  }
+
+  .info-card{
+    background:#fff;
+    border-radius:24px;
+    border:1px solid rgba(32,18,15,.1);
+    box-shadow:0 10px 30px rgba(32,18,15,.1);
+    padding:38px 30px;
+    height:100%;
+    transition:transform .35s ease, box-shadow .35s ease;
+    border-top:4px solid transparent;
+  }
+  .info-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 24px 60px rgba(124,10,30,.25);
+    border-top-color:var(--crimson-bright);
+  }
+  .card-icon{
+    width:54px; height:54px;
+    border-radius:16px;
+    background:linear-gradient(135deg, rgba(179,18,46,.1), rgba(225,29,61,.06));
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom:20px;
+    font-size:1.5rem;
+  }
+  .info-card ul li{
+    display:flex; justify-content:space-between;
+    border-bottom:1px dashed rgba(32,18,15,.1);
+    padding:10px 0;
+    color:var(--ink-soft);
+  }
+  .info-card ul li:last-child{ border-bottom:none; }
+  .info-card ul li .place{ font-weight:600; color:var(--ink); }
+  .info-card ul li .val{ font-weight:700; color:var(--crimson); }
+
+  /* ===== REGISTER FORM ===== */
+  .register-section{
+    position:relative;
+    background:
+      linear-gradient(180deg, rgba(20,5,9,.92), rgba(40,8,14,.95)),
+      url('https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1740&auto=format&fit=crop') center/cover fixed;
+    color:#fff;
+  }
+  .register-section .section-head p{ color:rgba(255,255,255,.75); }
+  .glass-card{
+    background:rgba(255,255,255,.12);
+    border:1px solid rgba(255,255,255,.35);
+    backdrop-filter:blur(22px);
+    border-radius:24px;
+    padding:46px 40px;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+  }
+  .glass-card label{
+    font-size:.84rem;
+    font-weight:600;
+    color:rgba(255,255,255,.85);
+    margin-bottom:.4rem;
+  }
+  .glass-card .form-control,
+  .glass-card .form-select{
+    background:rgba(255,255,255,.1);
+    border:1.5px solid rgba(255,255,255,.28);
+    color:#fff;
+    height:54px;
+    border-radius:12px;
+  }
+  .glass-card .form-control::placeholder{ color:rgba(255,255,255,.55); }
+  .glass-card .form-control:focus,
+  .glass-card .form-select:focus{
+    background:rgba(255,255,255,.16);
+    border-color:var(--pulse-red);
+    box-shadow:0 0 0 4px rgba(255,51,85,.18);
+    color:#fff;
+  }
+  .glass-card select.form-select option{ color:#20120F; }
+  .glass-card .invalid-feedback{ color:#FFB3BE; }
+  .glass-card .form-check-label{ color:#fff; font-weight:500; }
+
+  #issueBox{
+    background:rgba(255,255,255,.08);
+    border:1.5px dashed rgba(255,255,255,.35);
+    border-radius:12px;
+    padding:16px;
+    margin-top:10px;
+  }
+
+  .btn-register{
+    width:100%;
+    height:56px;
+    border-radius:50px;
+    background:linear-gradient(135deg, var(--crimson-bright), var(--crimson));
+    color:#fff;
+    font-weight:700;
+    border:none;
+    box-shadow:0 18px 40px rgba(225,29,61,.4);
+    transition:all .3s ease;
+  }
+  .btn-register:hover{
+    transform:translateY(-3px);
+    box-shadow:0 22px 48px rgba(225,29,61,.5);
+    color:#fff;
+  }
+
+  /* ===== FOOTER ===== */
+  footer{
+    background:var(--ink);
+    color:#fff;
+    padding:80px 0 30px;
+  }
+  footer h4{
+    font-family:'Inter', sans-serif;
+    font-size:.78rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.5);
+    font-weight:700;
+    margin-bottom:18px;
+  }
+  footer .footer-brand{
+    font-family:'Fraunces', serif;
+    font-size:1.3rem;
+    font-weight:600;
+    display:flex; align-items:center; gap:10px;
+  }
+  footer p, footer li, footer a{ color:rgba(255,255,255,.75); }
+  footer a:hover{ color:var(--pulse-red); }
+  footer ul{ list-style:none; padding:0; }
+  footer li{ margin-bottom:10px; }
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.1);
+    margin-top:60px;
+    padding-top:22px;
+    font-size:.82rem;
+    color:rgba(255,255,255,.45);
+  }
+
+  .reveal{ opacity:0; transform:translateY(28px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ===== WHY DONATE SECTION ===== */
+  .why-section{ background:var(--bone); }
+  .why-card{
+    background:#fff;
+    border-radius:24px;
+    border:1px solid rgba(32,18,15,.08);
+    box-shadow:0 10px 30px rgba(32,18,15,.08);
+    padding:36px 28px;
+    height:100%;
+    text-align:center;
+    transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    border-top:4px solid transparent;
+  }
+  .why-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 26px 60px rgba(124,10,30,.22);
+    border-top-color:var(--crimson-bright);
+  }
+  .why-icon{
+    width:64px; height:64px;
+    margin:0 auto 20px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--crimson-bright), var(--crimson));
+    display:flex; align-items:center; justify-content:center;
+    font-size:1.6rem; color:#fff;
+    box-shadow:0 12px 26px rgba(225,29,61,.35);
+    transition:transform .35s ease;
+  }
+  .why-card:hover .why-icon{ transform:scale(1.1) rotate(-6deg); }
+  .why-card h3{ font-size:1.15rem; margin-bottom:10px; }
+  .why-card p{ color:var(--ink-soft); font-size:.94rem; margin-bottom:0; }
+  .why-highlight{
+    background:linear-gradient(135deg, var(--crimson-bright), var(--crimson-deep));
+    color:#fff;
+    border-radius:24px;
+    padding:34px;
+    text-align:center;
+    box-shadow:0 20px 50px rgba(124,10,30,.3);
+  }
+  .why-highlight .stat-num{ color:#fff; font-size:3.2rem; }
+  .why-highlight .stat-lbl{ color:rgba(255,255,255,.85); }
+
+  /* ===== ELIGIBILITY SECTION ===== */
+  .elig-card{
+    background:#fff;
+    border-radius:22px;
+    border:1px solid rgba(32,18,15,.08);
+    box-shadow:0 10px 26px rgba(32,18,15,.08);
+    padding:32px 22px;
+    text-align:center;
+    height:100%;
+    transition:transform .35s ease, box-shadow .35s ease, background .35s ease, color .35s ease;
+  }
+  .elig-card:hover{
+    transform:translateY(-8px) scale(1.02);
+    box-shadow:0 24px 54px rgba(124,10,30,.28);
+    background:linear-gradient(135deg, var(--crimson-bright), var(--crimson-deep));
+    color:#fff;
+  }
+  .elig-card .why-icon{ background:rgba(225,29,61,.1); color:var(--crimson-bright); }
+  .elig-card:hover .why-icon{
+    background:rgba(255,255,255,.18);
+    color:#fff;
+  }
+  .elig-card h3{ font-size:1.05rem; margin-bottom:8px; }
+  .elig-card p{ font-size:.88rem; color:var(--ink-soft); margin-bottom:0; transition:color .35s ease; }
+  .elig-card:hover p{ color:rgba(255,255,255,.9); }
+
+  /* ===== BLOOD REQUIREMENTS SECTION ===== */
+  .req-section{ background:var(--bone); }
+  .req-card{
+    border-radius:22px;
+    padding:30px 22px;
+    text-align:center;
+    height:100%;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    box-shadow:0 16px 36px rgba(32,18,15,.18);
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .req-card:hover{ transform:translateY(-8px); box-shadow:0 26px 54px rgba(32,18,15,.28); }
+  .req-card .req-drop{
+    width:48px; height:48px;
+    margin:0 auto 14px;
+    border-radius:50% 50% 50% 0;
+    transform:rotate(45deg);
+    background:rgba(255,255,255,.22);
+    border:2px solid rgba(255,255,255,.5);
+  }
+  .req-card .req-group{ font-family:'Fraunces', serif; font-size:2rem; font-weight:700; margin-bottom:6px; }
+  .req-card .req-demand{
+    display:inline-block;
+    font-size:.74rem;
+    font-weight:700;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    background:rgba(255,255,255,.22);
+    border-radius:50px;
+    padding:5px 14px;
+  }
+  .req-card.req-very-high{ background:linear-gradient(135deg, #E11D3D, #7C0A1E); }
+  .req-card.req-high{ background:linear-gradient(135deg, #FF6B6B, #B3122E); }
+  .req-card.req-medium{ background:linear-gradient(135deg, #F0883E, #C44A1F); }
+  .req-card.req-rare{ background:linear-gradient(135deg, #6C3DBF, #3A1E73); }
+
+  /* ===== SUCCESS STORIES SECTION ===== */
+  .story-card{
+    background:#fff;
+    border-radius:24px;
+    border:1px solid rgba(32,18,15,.08);
+    box-shadow:0 10px 30px rgba(32,18,15,.08);
+    padding:40px 34px;
+    height:100%;
+    position:relative;
+    transition:transform .35s ease, box-shadow .35s ease;
+  }
+  .story-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 26px 60px rgba(124,10,30,.22);
+  }
+  .story-quote-icon{
+    font-size:2.4rem;
+    color:rgba(225,29,61,.18);
+    line-height:1;
+    margin-bottom:10px;
+  }
+  .story-card p.story-text{
+    color:var(--ink-soft);
+    font-size:1.02rem;
+    font-style:italic;
+    margin-bottom:24px;
+  }
+  .story-person{ display:flex; align-items:center; gap:14px; }
+  .story-avatar{
+    width:52px; height:52px;
+    border-radius:50%;
+    background:linear-gradient(135deg, var(--crimson-bright), var(--crimson-deep));
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:700; font-size:1.1rem;
+    flex-shrink:0;
+  }
+  .story-name{ font-weight:700; color:var(--ink); margin-bottom:0; }
+  .story-role{ font-size:.82rem; color:var(--crimson-bright); font-weight:600; }
+
+  /* ===== GALLERY SECTION ===== */
+  .gallery-section{ background:var(--bone); }
+  .gallery-item{
+    position:relative;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 14px 34px rgba(32,18,15,.16);
+    height:240px;
+  }
+  .gallery-item img{
+    width:100%;
+    height:300px;
+    object-fit:cover;
+    border-radius:20px;
+}
+  .gallery-item:hover img{ transform:scale(1.12); }
+  .gallery-overlay{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(124,10,30,0) 40%, rgba(20,5,9,.85) 100%);
+    display:flex;
+    align-items:flex-end;
+    padding:18px;
+    opacity:0;
+    transition:opacity .4s ease;
+  }
+  .gallery-item:hover .gallery-overlay{ opacity:1; }
+  .gallery-overlay span{ color:#fff; font-weight:600; font-size:.92rem; }
+</style>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar navbar-expand-lg fixed-top navbar-custom" id="mainNav">
+    <div class="container">
+      <button class="navbar-toggler order-1 order-lg-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse order-2 order-lg-1" id="navMenu">
+        <ul class="navbar-nav gap-1">
+          <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why-donate">Why Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#eligibility">Eligibility</a></li>
+          <li class="nav-item"><a class="nav-link" href="#requirement">Requirement</a></li>
+          <li class="nav-item"><a class="nav-link" href="#impact">Impact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="#register">Register</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <a class="navbar-brand ms-auto order-0 order-lg-2 me-0" href="#home"><span class="drop"></span>TN Blood Camp</a>
+    </div>
+  </nav>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="home" class="hero">
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Image 1 -->
+    <div class="carousel-item active"
+         style="background-image:url('https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=1740&auto=format&fit=crop')">
+    </div>
+
+    <!-- Image 2 (Blood Donation) -->
+    <div class="carousel-item"
+         style="background-image:url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1740&auto=format&fit=crop')">
+    </div>
+
+
+
+    <!-- Image 3 -->
+    <div class="carousel-item"
+         style="background-image:url('https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=1740&auto=format&fit=crop')">
+    </div>
+
+</div>
+</div>
+
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="eyebrow" style="color:#FFD7DD;">One donation can save up to three lives</span>
+      <h1 class="mt-3">Tamil Nadu <em>Blood Donation</em> Camp</h1>
+      <p class="hero-sub">Save Lives, Donate Blood ❤️</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="#register" class="btn btn-crimson">Register to Donate</a>
+        <a href="#about" class="btn btn-outline-light-glass">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== WHY DONATE BLOOD ===================== -->
+  <section id="why-donate" class="section-pad why-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">The Reason We Show Up</span>
+        <h2>Why Blood Donation Matters</h2>
+        <p>Blood cannot be manufactured — it can only come from generous donors like you. A single donation is split into components that can help multiple patients in need.</p>
+      </div>
+
+      <div class="row g-4 align-items-stretch mb-4">
+        <div class="col-lg-4 reveal">
+          <div class="why-highlight h-100 d-flex flex-column justify-content-center">
+            <div class="stat-num">3</div>
+            <div class="stat-lbl">Lives Saved Per Donation</div>
+            <p class="mt-3 mb-0" style="color:rgba(255,255,255,.85); font-size:.92rem;">One unit of blood is separated into red cells, plasma and platelets — helping up to three different patients.</p>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row g-4 h-100">
+            <div class="col-sm-6 reveal">
+              <div class="why-card">
+                <div class="why-icon"><i class="bi bi-bandaid-fill"></i></div>
+                <h3>Accident Victims</h3>
+                <p>Emergency trauma cases often require immediate transfusions to survive severe blood loss.</p>
+              </div>
+            </div>
+            <div class="col-sm-6 reveal">
+              <div class="why-card">
+                <div class="why-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+                <h3>Surgery Patients</h3>
+                <p>Major operations rely on a steady blood supply to keep patients safe throughout the procedure.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-shield-plus"></i></div>
+            <h3>Cancer Patients</h3>
+            <p>Chemotherapy and related treatments often leave patients needing regular transfusions to stay strong.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 reveal">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-heart-arrow"></i></div>
+            <h3>Mothers in Childbirth</h3>
+            <p>Childbirth complications can cause sudden blood loss, making donor blood lifesaving for new mothers.</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-4 reveal mx-auto">
+          <div class="why-card">
+            <div class="why-icon"><i class="bi bi-people-fill"></i></div>
+            <h3>Your Community</h3>
+            <p>Every donation strengthens the local blood supply, keeping hospitals across Tamil Nadu ready for emergencies.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" class="section-pad">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Our Journey</span>
+        <h2>Every Camp Tells a Story</h2>
+        <p>From the camps we've completed to the ones ahead, here's the impact our donors are making across Tamil Nadu.</p>
+      </div>
+
+      <div class="row text-center justify-content-center mb-5 reveal g-4">
+        <div class="col-4 col-md-3"><div class="stat-num">500+</div><div class="stat-lbl">Lives Saved</div></div>
+        <div class="col-4 col-md-3"><div class="stat-num">300+</div><div class="stat-lbl">Regular Donors</div></div>
+        <div class="col-4 col-md-3"><div class="stat-num">25+</div><div class="stat-lbl">Camps Conducted</div></div>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-4 reveal">
+          <div class="info-card">
+            <div class="card-icon">🩸</div>
+            <h3 class="h4">Past Camps</h3>
+            <ul>
+              <li><span class="place">Chennai</span><span class="val">120 Donors</span></li>
+              <li><span class="place">Madurai</span><span class="val">85 Donors</span></li>
+              <li><span class="place">Salem</span><span class="val">100 Donors</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="info-card">
+            <div class="card-icon">📅</div>
+            <h3 class="h4">Upcoming Camps</h3>
+            <ul>
+              <li><span class="place">Coimbatore</span><span class="val">25 June</span></li>
+              <li><span class="place">Trichy</span><span class="val">30 June</span></li>
+              <li><span class="place">Chennai</span><span class="val">5 July</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="info-card">
+            <div class="card-icon">❤️</div>
+            <h3 class="h4">Total Impact</h3>
+            <ul>
+              <li><span class="place">Lives Saved</span><span class="val">500+</span></li>
+              <li><span class="place">Regular Donors</span><span class="val">300+</span></li>
+              <li><span class="place">Camps Conducted</span><span class="val">25+</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ELIGIBILITY CRITERIA ===================== -->
+  <section id="eligibility" class="section-pad">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Check Before You Register</span>
+        <h2>Who Can Donate Blood?</h2>
+        <p>Donating blood is simple and safe. Make sure you meet these basic requirements before signing up for a camp.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-md-3 reveal">
+          <div class="elig-card">
+            <div class="why-icon mx-auto"><i class="bi bi-person-check-fill"></i></div>
+            <h3>Age</h3>
+            <p>18 – 60 Years</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="elig-card">
+            <div class="why-icon mx-auto"><i class="bi bi-speedometer2"></i></div>
+            <h3>Weight</h3>
+            <p>Above 45 Kg</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="elig-card">
+            <div class="why-icon mx-auto"><i class="bi bi-clipboard2-pulse-fill"></i></div>
+            <h3>Health</h3>
+            <p>Good General Health</p>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="elig-card">
+            <div class="why-icon mx-auto"><i class="bi bi-calendar2-week-fill"></i></div>
+            <h3>Donation Gap</h3>
+            <p>Minimum 3 Months</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BLOOD REQUIREMENTS ===================== -->
+  <section id="requirement" class="section-pad req-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Urgent Needs</span>
+        <h2>Current Blood Requirements</h2>
+        <p>These blood groups are needed most urgently at our partner hospitals right now. Check if yours can help.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-6 col-md-3 reveal">
+          <div class="req-card req-very-high">
+            <div class="req-drop"></div>
+            <div class="req-group">O+</div>
+            <span class="req-demand">Very High Demand</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="req-card req-high">
+            <div class="req-drop"></div>
+            <div class="req-group">A+</div>
+            <span class="req-demand">High Demand</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="req-card req-medium">
+            <div class="req-drop"></div>
+            <div class="req-group">B+</div>
+            <span class="req-demand">Medium Demand</span>
+          </div>
+        </div>
+        <div class="col-6 col-md-3 reveal">
+          <div class="req-card req-rare">
+            <div class="req-drop"></div>
+            <div class="req-group">AB-</div>
+            <span class="req-demand">Rare Blood Type</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SUCCESS STORIES ===================== -->
+  <section id="impact" class="section-pad">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Real Impact</span>
+        <h2>Lives Saved Through Donations</h2>
+        <p>Hear directly from those whose lives were touched by the generosity of blood donors across Tamil Nadu.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 reveal">
+          <div class="story-card">
+            <div class="story-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="story-text">After my accident, I needed an emergency transfusion within hours. Thanks to donors who showed up at the Chennai camp, I got a second chance at life. I am forever grateful to every donor.</p>
+            <div class="story-person">
+              <div class="story-avatar">P</div>
+              <div>
+                <p class="story-name">Priya Ramesh</p>
+                <span class="story-role">Patient, Chennai</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 reveal">
+          <div class="story-card">
+            <div class="story-quote-icon"><i class="bi bi-quote"></i></div>
+            <p class="story-text">I've been donating blood every three months for the past five years. It costs me an hour, but it could give someone an entire lifetime. I encourage everyone who's eligible to donate.</p>
+            <div class="story-person">
+              <div class="story-avatar">K</div>
+              <div>
+                <p class="story-name">Karthik Subramaniam</p>
+                <span class="story-role">Regular Donor, Coimbatore</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery" class="section-pad gallery-section">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Captured Moments</span>
+        <h2>Blood Donation Camp Moments</h2>
+        <p>A glimpse into our recent camps across Tamil Nadu — donors, volunteers and the spirit of giving.</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-sm-6 reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop" alt="Blood donation camp">
+            <div class="gallery-overlay"><span>Chennai Camp</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=800&auto=format&fit=crop" alt="Donor giving blood">
+            <div class="gallery-overlay"><span>Donor in Action</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=800&auto=format&fit=crop" alt="Medical team at camp">
+            <div class="gallery-overlay"><span>Medical Team</span></div>
+          </div>
+        </div>
+        <div class="col-md-6 col-sm-6 reveal">
+          <div class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?q=80&w=800&auto=format&fit=crop" alt="Camp crowd and donors">
+            <div class="gallery-overlay"><span>Community Turnout</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== REGISTER ===================== -->
+  <section id="register" class="register-section section-pad">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" style="color:#FFD7DD;">Join the Cause</span>
+        <h2>Register to Donate</h2>
+        <p>Fill in your details below. Our team will contact you with the nearest camp location and schedule.</p>
+      </div>
+
+      <div class="row justify-content-center reveal">
+        <div class="col-lg-7 col-md-9">
+          <div class="glass-card">
+
+            <div class="alert alert-success d-none align-items-center gap-2" id="successBanner">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Registration successful! Thank you for choosing to save lives.</span>
+            </div>
+
+            <form id="registerForm" class="row g-3" novalidate>
+              <div class="col-12">
+                <label for="donorName" class="form-label">Donor Name</label>
+                <input type="text" class="form-control" id="donorName" placeholder="Enter your full name" autocomplete="name">
+                <div class="invalid-feedback" id="errName"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="donorAge" class="form-label">Age (18 - 60)</label>
+                <input type="number" class="form-control" id="donorAge" placeholder="Enter your age" min="18" max="60" inputmode="numeric">
+                <div class="invalid-feedback" id="errAge"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="donorWeight" class="form-label">Weight (kg)</label>
+                <input type="number" class="form-control" id="donorWeight" placeholder="Enter your weight" min="45" max="200" inputmode="numeric">
+                <div class="invalid-feedback" id="errWeight"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="bloodGroup" class="form-label">Blood Group</label>
+                <select class="form-select" id="bloodGroup">
+                  <option value="" disabled selected>Select your blood group</option>
+                  <option value="A+">A+</option>
+                  <option value="A-">A-</option>
+                  <option value="B+">B+</option>
+                  <option value="B-">B-</option>
+                  <option value="AB+">AB+</option>
+                  <option value="AB-">AB-</option>
+                  <option value="O+">O+</option>
+                  <option value="O-">O-</option>
+                </select>
+                <div class="invalid-feedback" id="errBlood"></div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="phoneNumber" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phoneNumber" placeholder="10-digit mobile number" inputmode="numeric" maxlength="10" autocomplete="tel">
+                <div class="invalid-feedback" id="errPhone"></div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <label class="form-label d-block">Do you have any health issues?</label>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="healthIssue" id="issueYes" value="yes">
+                  <label class="form-check-label" for="issueYes">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="healthIssue" id="issueNo" value="no">
+                  <label class="form-check-label" for="issueNo">No</label>
+                </div>
+
+                <div id="issueBox" class="d-none">
+                  <label for="issueDetails" class="form-label">Please describe your health issue</label>
+                  <textarea class="form-control" id="issueDetails" rows="3" placeholder="E.g. diabetes, blood pressure, recent surgery, medication..."></textarea>
+                  <div class="invalid-feedback" id="errIssue"></div>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-register">Register Now</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT / FOOTER ===================== -->
+  <footer id="contact">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-brand mb-3"><span class="drop"></span>TN Blood Camp</div>
+          <p>A community-driven initiative connecting willing donors with blood donation camps across Tamil Nadu.</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4>Get in Touch</h4>
+          <ul>
+            <li><i class="bi bi-envelope-fill me-2"></i><a href="mailto:bloodcamp@tamilnadu.org">bloodcamp@tamilnadu.org</a></li>
+            <li><i class="bi bi-telephone-fill me-2"></i><a href="tel:+919876543210">+91 9876543210</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4>Headquarters</h4>
+          <ul>
+            <li><i class="bi bi-geo-alt-fill me-2"></i>Tamil Nadu Blood Donation HQ</li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#why-donate">Why Donate</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#eligibility">Eligibility</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#register">Register</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
+        <span>© 2026 Tamil Nadu Blood Donation Camp. All rights reserved.</span>
+        <span>Made with ❤️ for a healthier Tamil Nadu</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+  <script>
+    /* ============ NAVBAR SCROLL STATE ============ */
+    const navbar = document.getElementById('mainNav');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    function onScroll(){
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+
+      const sections = ['home','why-donate','about','eligibility','blood-requirements','success-stories','gallery','register','contact'];
+      let current = sections[0];
+      for(const id of sections){
+        const el = document.getElementById(id);
+        if(el){
+          const rect = el.getBoundingClientRect();
+          if(rect.top <= 120 && rect.bottom > 120){ current = id; }
+        }
+      }
+      navLinks.forEach(a=>{
+        a.classList.toggle('active', a.getAttribute('href') === '#'+current);
+      });
+    }
+    window.addEventListener('scroll', onScroll);
+    onScroll();
+
+    /* ============ SCROLL REVEAL ============ */
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:0.15 });
+    revealEls.forEach((el, i)=>{
+      el.style.transitionDelay = (i % 3) * 0.08 + 's';
+      io.observe(el);
+    });
+
+    /* ============ HEALTH ISSUE TOGGLE ============ */
+    const issueYes = document.getElementById('issueYes');
+    const issueNo = document.getElementById('issueNo');
+    const issueBox = document.getElementById('issueBox');
+    const issueDetails = document.getElementById('issueDetails');
+    const errIssue = document.getElementById('errIssue');
+
+    issueYes.addEventListener('change', ()=>{
+      if(issueYes.checked){
+        issueBox.classList.remove('d-none');
+      }
+    });
+    issueNo.addEventListener('change', ()=>{
+      if(issueNo.checked){
+        issueBox.classList.add('d-none');
+        issueDetails.value = '';
+        issueDetails.classList.remove('is-invalid');
+        errIssue.textContent = '';
+      }
+    });
+
+    /* ============ FORM VALIDATION ============ */
+    const form = document.getElementById('registerForm');
+    const successBanner = document.getElementById('successBanner');
+
+    const fields = {
+      name: document.getElementById('donorName'),
+      age: document.getElementById('donorAge'),
+      weight: document.getElementById('donorWeight'),
+      blood: document.getElementById('bloodGroup'),
+      phone: document.getElementById('phoneNumber')
+    };
+    const errs = {
+      name: document.getElementById('errName'),
+      age: document.getElementById('errAge'),
+      weight: document.getElementById('errWeight'),
+      blood: document.getElementById('errBlood'),
+      phone: document.getElementById('errPhone')
+    };
+
+    function clearErrors(){
+      Object.entries(errs).forEach(([key, e]) => {
+        e.textContent = '';
+        fields[key].classList.remove('is-invalid');
+      });
+      errIssue.textContent = '';
+      issueDetails.classList.remove('is-invalid');
+    }
+
+    fields.phone.addEventListener('input', ()=>{
+      fields.phone.value = fields.phone.value.replace(/\D/g,'').slice(0,10);
+    });
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      clearErrors();
+      successBanner.classList.add('d-none');
+      successBanner.classList.remove('d-flex');
+
+      let valid = true;
+      const name = fields.name.value.trim();
+      const age = fields.age.value.trim();
+      const weight = fields.weight.value.trim();
+      const blood = fields.blood.value;
+      const phone = fields.phone.value.trim();
+
+      if(name.length < 2){
+        errs.name.textContent = 'Please enter your full name.';
+        fields.name.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(age === '' || isNaN(age) || parseInt(age) < 18 || parseInt(age) > 60){
+        errs.age.textContent = 'Age must be between 18 and 60.';
+        fields.age.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(weight === '' || isNaN(weight) || parseInt(weight) < 45){
+        errs.weight.textContent = 'Weight must be at least 45 kg to donate.';
+        fields.weight.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(blood === ''){
+        errs.blood.textContent = 'Please select your blood group.';
+        fields.blood.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(!/^\d{10}$/.test(phone)){
+        errs.phone.textContent = 'Phone number must be exactly 10 digits.';
+        fields.phone.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(!issueYes.checked && !issueNo.checked){
+        valid = false;
+        alert('Please specify whether you have any health issues.');
+      }
+
+      if(issueYes.checked && issueDetails.value.trim().length < 3){
+        errIssue.textContent = 'Please describe your health issue.';
+        issueDetails.classList.add('is-invalid');
+        valid = false;
+      }
+
+      if(!valid){
+        if(name.length >= 2 || age || weight || blood || phone){
+          alert('Please fix the highlighted errors before submitting.');
+        }
+        return;
+      }
+
+      alert('🎉 Thank you, ' + name + '! Your registration as a ' + blood + ' donor has been received.');
+      successBanner.classList.remove('d-none');
+      successBanner.classList.add('d-flex');
+      form.reset();
+      issueBox.classList.add('d-none');
+      successBanner.scrollIntoView({ behavior:'smooth', block:'center' });
+    });
+  </script>
+</body>
+</html>
